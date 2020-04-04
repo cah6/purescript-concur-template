@@ -1,18 +1,14 @@
 module Main where
 
-import Prelude
+import Custom.Prelude
 
-import Concur.Core (Widget)
-import Concur.React (HTML)
-import Concur.React.DOM as D
-import Concur.React.Props as P
-import Concur.React.Run (runWidgetInDom)
+import Custom.Concur as C
 import Effect (Effect)
 
-hello :: forall a. Widget HTML a
+hello :: forall a. C.Widget C.HTML a
 hello = do
-  void $ D.button [ P.onClick ] [ D.text "Say Hello" ]
-  D.text "Hello Sailor!"
+  _ <- C.button [ C.onClick ] [ C.text "Say Hello" ]
+  C.text "Hello Sailor!"
 
 main :: Effect Unit
-main = runWidgetInDom "root" hello
+main = C.runWidgetInDom "root" hello
