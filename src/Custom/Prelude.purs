@@ -10,11 +10,14 @@ module Custom.Prelude
   , module Data.Maybe
   , module Data.Newtype
   , module Data.Symbol
+  , module Data.Tuple
   , module Effect
   , module Effect.Aff
   , module Effect.Aff.Class
   , module Effect.Class
+  , module Effect.Console
   , module Foreign
+  , module Prim.Boolean
   , undefined
   ) where
 
@@ -37,8 +40,9 @@ import Data.Either (Either(..), choose, either, fromLeft, fromRight, hush, isLef
     isRight, note, note')
 import Data.Maybe (Maybe(..), fromJust, fromMaybe, fromMaybe', isJust, isNothing,
     maybe, maybe', optional)
-import Data.Newtype (class Newtype, traverse, un, unwrap, wrap)
+import Data.Newtype (class Newtype, un, unwrap, wrap)
 import Data.Symbol (class IsSymbol, SProxy(..), reflectSymbol, reifySymbol)
+import Data.Tuple (Tuple(..), curry, fst, lookup, snd, swap, uncurry)
 import Effect (Effect, forE, foreachE, untilE, whileE)
 import Effect.Aff (Aff, BracketConditions, Canceler(..), Error, Fiber, Milliseconds(..),
     ParAff, apathize, attempt, bracket, cancelWith, catchError, delay, effectCanceler,
@@ -48,10 +52,12 @@ import Effect.Aff (Aff, BracketConditions, Canceler(..), Error, Fiber, Milliseco
     suspendAff, throwError, try)
 import Effect.Aff.Class (class MonadAff, liftAff)
 import Effect.Class (class MonadEffect, liftEffect)
+import Effect.Console (log)
 import Foreign (F, Foreign, ForeignError(..), MultipleErrors, fail, isArray, isNull,
     isUndefined, readArray, readBoolean, readChar, readInt, readNull, readNullOrUndefined,
     readNumber, readString, readUndefined, renderForeignError, tagOf, typeOf,
     unsafeFromForeign, unsafeReadTagged, unsafeToForeign)
+import Prim.Boolean (False, True)
 import Unsafe.Coerce (unsafeCoerce)
 
 

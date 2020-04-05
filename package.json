@@ -8,7 +8,7 @@
     "clean": "rimraf .cache .spago .psci_modules output .pulp-cache prod dist",
     "build": "spago build",
     "dev": "rimraf dist && spago build && parcel build --public-url ./ index.html",
-    "prod": "rimraf prod dist docs && mkdir prod && spago bundle-app --main Main --to prod/index.prod.js && java -jar closure-compiler/closure-compiler-v20190301.jar --js prod/index.prod.js --js_output_file prod/index.js && cp index.html prod/index.html && parcel build --public-url ./ prod/index.html && rimraf prod && cp -r dist docs",
+    "prod": "rimraf prod dist docs && mkdir prod && spago bundle-app --main Main --to prod/index.prod.js && java -jar closure-compiler/closure-compiler-v20190301.jar --js prod/index.prod.js --js_output_file prod/index.js && cp index.html prod/index.html && cp -r css prod/css && parcel build --public-url ./ prod/index.html && rimraf prod && cp -r dist docs",
     "start": "spago build && parcel index.html",
     "watch": "spago build && parcel watch index.html"
   },
@@ -18,10 +18,15 @@
     "parcel-bundler": "^1.12.4",
     "purescript": "^0.13.5",
     "rimraf": "^3.0.0",
+    "sass": "^1.26.3",
     "spago": "^0.12.1"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "@material-ui/core": "^4.9.9",
+    "@types/react": "^16.8.6",
+    "bulma": "^0.8.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-spinners": "^0.8.1"
   }
 }

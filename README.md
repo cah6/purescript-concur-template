@@ -1,35 +1,21 @@
-# Purescript Concur Starter
+# Purescript Concur Template
 
-A Starter kit for Purescript-Concur. Uses Npm, Spago, Google Closure Compiler, and Parcel. Builds tiny 180KB uncompressed bundles!
+Opinionated template for purescript concur projects based on
+https://github.com/purescript-concur/purescript-concur-starter.
 
-## Usage
+# Quick start
 
-### Grab the code
+Install / Build
 
-> git clone https://github.com/purescript-concur/purescript-concur-starter.git
+> yarn install
+> yarn build
 
-Don't forget to tweak the project name and other details in package.json and bower.json
+Hot reloading run locally
 
-### Build code
+> yarn start
 
-> npm install
+Production build
 
-> npm run dev
+> yarn prod
 
-### Run Dev Server
-
-> npm start
-
-## Hot code reload with purescript code
-
-At the end of the previous command, you will have a development server
-which will watch for changes, and automatically reload the web page.
-This mechanism only works with JS changes.
-
-However, in practice, your IDE should automatically recompile Purescript to
-Javascript on every change, which will be picked up by the development server.
-So you get immediate recompilation even with Purescript.
-
-### Build production artifacts
-
-> npm run prod
+Deploy using github pages, so just push the `docs` folder.
